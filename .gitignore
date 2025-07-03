@@ -20,7 +20,7 @@ Thumbs.db
 .idea/
 
 # Data files
-data/*.json
+# data/*.json
 
 # Others
 *.tgz
