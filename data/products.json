@@ -12,5 +12,12 @@
     "price": 1099,
     "quantity": 10,
     "category": "smartphone"
+  },
+  {
+    "id": "6c58ad2c-3076-40fb-970a-aa5c34460062",
+    "name": "iPad",
+    "price": 899,
+    "quantity": 3,
+    "category": "tablet"
   }
 ]
