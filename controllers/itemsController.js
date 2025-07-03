@@ -3,13 +3,11 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const filePath = path.join(__dirname, '../data/products.json');
 
-// 🔹 Хелпер: читаем файл
 const readData = async () => {
   const data = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(data || '[]');
 };
 
-// 🔹 Хелпер: записываем файл
 const writeData = async (data) => {
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));
 };
