@@ -22,6 +22,19 @@ exports.getAllItems = async (req, res) => {
   if (category) {
     filtered = filtered.filter(item => item.category === category);
   }
+  if (req.query.name) {
+  filtered = filtered.filter(item =>
+    item.name.toLowerCase().includes(req.query.name.toLowerCase())
+  );
+}
+
+if (req.query.minPrice) {
+  filtered = filtered.filter(item => item.price >= parseFloat(req.query.minPrice));
+}
+
+if (req.query.maxPrice) {
+  filtered = filtered.filter(item => item.price <= parseFloat(req.query.maxPrice));
+}
 
   const paginated = filtered.slice(Number(offset) || 0, (Number(offset) || 0) + (Number(limit) || filtered.length));
   res.json(paginated);
