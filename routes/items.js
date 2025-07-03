@@ -7,6 +7,8 @@ const {
   updateItem,
   deleteItem
 } = require('../controllers/itemsController');
+const { productValidationRules } = require('../validators/productValidator');
+const { validate } = require('../utils/validate');
 
 // GET /items
 router.get('/', getAllItems);
@@ -15,10 +17,9 @@ router.get('/', getAllItems);
 router.get('/:id', getItemById);
 
 // POST /items
-router.post('/', createItem);
-
+router.post('/', productValidationRules, validate, createItem);
 // PUT /items/:id
-router.put('/:id', updateItem);
+router.put('/:id', productValidationRules, validate, updateItem);
 
 // DELETE /items/:id
 router.delete('/:id', deleteItem);
